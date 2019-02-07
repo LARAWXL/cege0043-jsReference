@@ -1,30 +1,31 @@
 // define the global variable to process the AJAX request
-var xhr;
+var xhrNode;
 
-function callDivChange() {
-    xhr = new XMLHttpRequest();
+
+function callDivNodeJSChange() {
+    xhrNode = new XMLHttpRequest();
     // get the content of the text box and send it to the server
-    var filename = document.getElementById("filename").value;
-    xhr.open("GET", filename, true);
-    xhr.onreadystatechange = processDivChange;
+    var url = "http://developer.cege.ucl.ac.uk:"+httpPortNumber;
+    xhrNode.open("GET", url, true);
+    xhrNode.onreadystatechange = processDivNodeJSChange;
     try {
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhrNode.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     } catch (e) {
         // this only works in internet explorer
     }
-    xhr.send();
+    xhrNode.send();
 }
 
-function processDivChange() {
+function processDivNodeJSChange() {
     // while waiting response from the server
-    if (xhr.readyState < 4) {
-        document.getElementById('div1').innerHTML = "Loading...";
+    if (xhrNode.readyState < 4) {
+        document.getElementById('ajaxtext').innerHTML = "Loading...";
     }
     // 4 = Response from server has been completely
-    else if (xhr.readyState === 4) {
+    else if (xhrNode.readyState === 4) {
         // http status between 200 to 299 are all successful
-        if (xhr.status == 200 && xhr.status < 300) {
-            document.getElementById('div1').innerHTML = xhr.responseText;
+        if (xhrNode.status == 200 && xhrNode.status < 300) {
+            document.getElementById('ajaxtext').innerHTML = xhrNode.responseText;
         }
     }
 }
