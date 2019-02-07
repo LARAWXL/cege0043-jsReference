@@ -16,13 +16,14 @@ function callDivNodeJSChange() {
 function processDivNodeJSChange() {
     // while waiting response from the server
     if (xhrNode.readyState < 4) {
-        document.getElementById('ajaxtext').innerHTML = "Loading...";
+        document.getElementById('ajaxtest').innerHTML = "Loading...";
     } else {
         // 4 = Response from server has been completely loaded.
         if (xhrNode.readyState === 4) {
             // http status between 200 to 299 are all successful
-            if (xhrNode.status == 200 && xhrNode.status < 300)
-                document.getElementById('ajaxtext').innerHTML = xhrNode.responseText;
+            if (xhrNode.status == 200 && xhrNode.status < 300) {
+                document.getElementById('ajaxtest').innerHTML = xhrNode.responseText;
+            }
         }
     }
 }
