@@ -10,6 +10,7 @@ function trackAndCircle() {
     trackLocation()
     //addPointLinePoly()
     //getEarthquakes()
+    getFormdata()
 }
 
 
