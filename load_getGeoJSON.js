@@ -10,19 +10,27 @@ var GeoJSON;
 // can use it to remove the layer later on
 var GeoJSONlayer;
 
+var london_poi = 'london_poi'
+var london_highway = 'london_highway'
+
 // run the function when you click the LOAD DATA BUTTON
-function loadGeoJSON() {
+function load_london_poi() {
     // call the getEarthquakes code
     // keep the alert message so that we know something is happening
-    alert("Loading GeoJSON");
-    getGeoJSON();
+    alert("Loading london_poi");
+    getGeoJSON(london_poi);
+}
+
+function load_london_highway() {
+    alert("Loading london_highway");
+    getGeoJSON(london_highway);
 }
 
 
 // get the Earthquakes data using an XMLHttpRequest
-function getGeoJSON() {
+function getGeoJSON(x) {
     client = new XMLHttpRequest();
-    client.open('GET', 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getGeoJSON/' + 'london_poi/geom');
+    client.open('GET', 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getGeoJSON/' + x + '/geom');
     client.onreadystatechange = formdataResponse;
     // note don't use earthquakeResponse() with brackets as that doesn't work
     client.send();
