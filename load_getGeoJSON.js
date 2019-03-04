@@ -50,7 +50,7 @@ function loadGeoJSONlayer(GeoJSON_text) {
     // load the geoJSON layer -- using customer icons
     GeoJSONlayer = L.geoJson(GeoJSON_json).addTo(mymap);
     // change the map zoom so that all the data is shown
-    //mymap.fitBounds(formdatajson.getBounds());
+    mymap.fitBounds(GeoJSONlayer.getBounds());
 }
 
 // run the function when you click the REMOVE DATA BUTTON
