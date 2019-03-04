@@ -31,7 +31,7 @@ function load_london_highway() {
 function getGeoJSON(x) {
     client = new XMLHttpRequest();
     client.open('GET', 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getGeoJSON/' + x + '/geom');
-    client.onreadystatechange = formdataResponse;
+    client.onreadystatechange = GeoJSONResponse;
     // note don't use earthquakeResponse() with brackets as that doesn't work
     client.send();
 }
